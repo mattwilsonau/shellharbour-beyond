@@ -64,7 +64,9 @@ const TYPE_COLORS = {
   'Marketing':'#f3e5f5','Real Estate':'#fff8e1',
   'Finance':'#e3f2fd','Retail':'#fbe9e7',
   'Technology':'#e8eaf6','Education':'#f1f8e9',
-  'Community & NFP':'#ede7f6','Other':'#f5f5f5'
+  'Community & NFP':'#ede7f6','Arts & Creative':'#fce8f3',
+  'Business Consulting':'#e8f4f0','Government & Community':'#e8edf5',
+  'Other':'#f5f5f5'
 };
 const homepageGrid = document.getElementById('homepage-directory-grid');
 if (homepageGrid) {

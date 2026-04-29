@@ -51,7 +51,7 @@
     "id": "four-t-solutions",
     "name": "4T Solutions",
     "type": "Technology",
-    "logo": "",
+    "logo": "uploads/directory/four-t-solutions-logo.png",
     "address": "Shellharbour, NSW",
     "phone": "0428 769 157",
     "email": "dev.rasnakawewa@4tsolutions.com.au",
@@ -59,7 +59,12 @@
     "facebook": "",
     "instagram": "",
     "linkedin": "https://www.linkedin.com/company/four-tsolutions/",
-    "images": [],
+    "images": [
+      "uploads/directory/four-t-solutions-cyber-security-sme.jpg",
+      "uploads/directory/four-t-solutions-ai-governance-advisory.jpg",
+      "uploads/directory/four-t-solutions-team-dev-rasnakawewa.jpg",
+      "uploads/directory/four-t-solutions-team-2.jpg"
+    ],
     "description": "4T Solutions delivers affordable cybersecurity and IT services for Australian small and medium businesses. From security audits and employee training to AI governance advisory and staffing solutions, they help local businesses protect their data, meet compliance standards and scale with confidence.",
     "member_since": "2026"
   },

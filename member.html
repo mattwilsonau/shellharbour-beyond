@@ -12,7 +12,7 @@
   <style>
     /* ── MEMBER PROFILE PAGE ── */
     .profile-wrap {
-      background: var(--sand); padding: 140px 0 80px; min-height: 100vh;
+      background: var(--sand); padding: 100px 0 80px; min-height: 100vh;
     }
     .back-btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -25,7 +25,7 @@
     .back-btn:hover { color: var(--navy); border-color: var(--navy); }
 
     .profile-grid {
-      display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start;
+      display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start;
     }
 
     /* Left: main content */
@@ -149,7 +149,7 @@
 <body>
 
 <!-- NAV -->
-<nav id="main-nav">
+<nav id="main-nav" class="nav-compact">
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="Shellharbour &amp; Beyond Networking Group"/>
@@ -287,10 +287,9 @@ fetch('directory.json')
           <div class="profile-header" style="border-top: 4px solid ${color}">
             <span class="biz-tag">${m.type}</span>
             <h1>${m.name}</h1>
-          </div>
-          <div class="profile-description">
-            <h2>About</h2>
-            <p>${m.description}</p>
+            <hr style="border:none;border-top:1px solid var(--border);margin:24px 0"/>
+            <h2 style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">About</h2>
+            <p style="font-size:16px;color:var(--text-muted);line-height:1.75">${m.description}</p>
           </div>
           <div class="profile-gallery">
             <h2>Photos</h2>

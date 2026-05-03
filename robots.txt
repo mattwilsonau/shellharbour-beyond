@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mattwilsonau.github.io/shellharbour-beyond/sitemap.xml

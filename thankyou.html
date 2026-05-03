@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Confirmed — Shellharbour &amp; Beyond Networking Group</title>
+  <link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .thankyou-page {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #f0fafc 0%, #e8f4f8 40%, #fdf8f2 100%);
+      padding: 40px 24px; text-align: center;
+    }
+    .thankyou-inner { max-width: 520px; }
+    .thankyou-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--teal-light); border: 3px solid var(--teal-mid);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px; color: var(--teal-mid);
+    }
+    .thankyou-inner h1 { font-size: clamp(28px, 4vw, 42px); color: var(--navy); margin-bottom: 16px; }
+    .thankyou-inner p { font-size: 17px; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; }
+    .thankyou-steps {
+      background: white; border-radius: 20px; padding: 28px 32px;
+      margin: 32px 0; text-align: left; border: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(26,58,107,0.06);
+    }
+    .thankyou-steps h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .thankyou-step {
+      display: flex; gap: 14px; align-items: flex-start; padding: 10px 0;
+      border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text-muted);
+    }
+    .thankyou-step:last-child { border-bottom: none; }
+    .step-dot {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; margin-top: 1px;
+    }
+    .step-dot.done { background: var(--teal-light); color: var(--teal-mid); }
+    .step-dot.pending { background: #f0f4f8; color: var(--text-muted); }
+    .thankyou-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+  </style>
+</head>
+<body>
+<div class="thankyou-page">
+  <div class="thankyou-inner">
+    <div class="thankyou-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1>Payment confirmed!</h1>
+    <p>Welcome to Shellharbour &amp; Beyond. Your membership is on its way.</p>
+    <p style="font-size:15px">Check your inbox — you'll receive an email shortly with a link to complete your business listing.</p>
+
+    <div class="thankyou-steps">
+      <h3>What happens next</h3>
+      <div class="thankyou-step">
+        <div class="step-dot done">✓</div>
+        <div><strong style="color:var(--navy)">Payment received</strong><br/>$50 annual membership confirmed.</div>
+      </div>
+      <div class="thankyou-step">
+        <div class="step-dot pending">2</div>
+        <div><strong style="color:var(--navy)">Check your email</strong><br/>We're sending you a link to complete your full business listing. It takes about 5 minutes.</div>
+      </div>
+      <div class="thankyou-step">
+        <div class="step-dot pending">3</div>
+        <div><strong style="color:var(--navy)">We review your listing</strong><br/>Every listing is personally reviewed before going live — usually within 1–2 business days.</div>
+      </div>
+      <div class="thankyou-step">
+        <div class="step-dot pending">4</div>
+        <div><strong style="color:var(--navy)">You're live in the directory</strong><br/>We'll email you when your profile is published.</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--text-muted)">Didn't get the email? Check your spam folder or <a href="index.html#contact" style="color:var(--teal-mid)">contact us</a>.</p>
+    <div class="thankyou-links" style="margin-top:24px">
+      <a href="members.html" class="btn-primary">Browse the Directory</a>
+      <a href="index.html" class="btn-outline">Back to Home</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

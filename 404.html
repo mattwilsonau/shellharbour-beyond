@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Not Found — Shellharbour &amp; Beyond Networking Group</title>
+  <link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .error-page {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: var(--sand); padding: 40px 24px; text-align: center;
+    }
+    .error-inner { max-width: 480px; }
+    .error-num {
+      font-size: clamp(80px, 15vw, 140px); font-weight: 700; color: var(--teal-light);
+      font-family: 'DM Sans', sans-serif; line-height: 1; margin-bottom: 0;
+      -webkit-text-stroke: 2px var(--teal-mid);
+    }
+    .error-inner h1 { font-size: clamp(24px, 4vw, 36px); color: var(--navy); margin: 8px 0 16px; }
+    .error-inner p { font-size: 16px; color: var(--text-muted); margin-bottom: 32px; line-height: 1.7; }
+    .error-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+<div class="error-page">
+  <div class="error-inner">
+    <div class="error-num">404</div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist or may have moved. Let's get you back on track.</p>
+    <div class="error-links">
+      <a href="index.html" class="btn-primary">Back to Home</a>
+      <a href="members.html" class="btn-outline">Browse Directory</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

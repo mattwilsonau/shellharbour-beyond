@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Member Directory — Shellharbour &amp; Beyond Networking Group</title>
   <meta name="description" content="Browse all members of the Shellharbour &amp; Beyond Networking Group. Local businesses, professionals and community leaders across the Shellharbour region."/>
+  <link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Member Directory — Shellharbour &amp; Beyond"/>
+  <meta property="og:description" content="Browse local businesses, professionals and community leaders across the Shellharbour region."/>
+  <meta property="og:url" content="https://mattwilsonau.github.io/shellharbour-beyond/members.html"/>
+  <meta property="og:image" content="https://mattwilsonau.github.io/shellharbour-beyond/uploads/hero-networking-group.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
@@ -170,13 +177,17 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Next Event: May 14, 2026 &nbsp;·&nbsp; 10:00am – 11:30am
     </div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#events">Events</a></li>
       <li><a href="index.html#membership">Membership</a></li>
       <li><a href="members.html">Directory</a></li>
+      <li><a href="apply.html">Get Listed</a></li>
       <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -206,7 +217,13 @@
 <!-- MEMBERS GRID -->
 <section class="members-body">
   <div class="container">
-    <div class="members-grid" id="members-grid">
+    <!-- Loading skeleton -->
+    <div class="skeleton-grid" id="members-skeleton">
+      <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line medium"></div><div class="skeleton-line full"></div><div class="skeleton-line full"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line medium"></div><div class="skeleton-line full"></div><div class="skeleton-line full"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line medium"></div><div class="skeleton-line full"></div><div class="skeleton-line full"></div></div></div>
+    </div>
+    <div class="members-grid" id="members-grid" style="display:none">
       <!-- populated by JS -->
     </div>
   </div>
@@ -359,8 +376,10 @@ function applyFilters() {
 }
 
 fetch('directory.json')
-  .then(r => r.json())
+  .then(r => { if (!r.ok) throw new Error('fetch failed'); return r.json(); })
   .then(data => {
+    document.getElementById('members-skeleton').style.display = 'none';
+    document.getElementById('members-grid').style.display = 'grid';
     allMembers = data.slice().sort((a, b) => a.name.localeCompare(b.name));
     // Build filter buttons
     const types = [...new Set(allMembers.map(m => m.type))].sort();
@@ -392,10 +411,28 @@ document.getElementById('search-input').addEventListener('input', e => {
   applyFilters();
 });
 
+  })
+  .catch(() => {
+    document.getElementById('members-skeleton').style.display = 'none';
+    document.getElementById('members-grid').style.display = 'grid';
+    document.getElementById('members-grid').innerHTML = '<div class="fetch-error" style="grid-column:1/-1"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><h3>Couldn\'t load the directory</h3><p>Please refresh the page or try again shortly.</p></div>';
+  });
+
 // Nav scroll
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 nav.classList.toggle('scrolled', window.scrollY > 60);
+
+// Mobile nav
+(function() {
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  if (!hamburger || !navLinks) return;
+  function closeNav() { navLinks.classList.remove('nav-open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  hamburger.addEventListener('click', () => { const o = navLinks.classList.toggle('nav-open'); hamburger.classList.toggle('open',o); hamburger.setAttribute('aria-expanded',String(o)); document.body.style.overflow=o?'hidden':''; });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeNav(); });
+})();
 </script>
 </body>
 </html>

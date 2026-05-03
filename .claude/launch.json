@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "shellharbour-beyond",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "C:\\Claude\\shellharbour-beyond"],
+      "port": 3456
+    }
+  ]
+}
